@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When the Persona Contradicts the Line</title>
+<meta name="description" content="Audio samples for the paper: the same line under two personas, with the stock route and a learned interface side by side.">
+<link rel="canonical" href="https://nonmetal.github.io/when-the-persona-contradicts-the-line/">
+<meta property="og:title" content="When the Persona Contradicts the Line">
+<meta property="og:description" content="Audio samples: the same line under two personas, rendered through four plan-to-synthesis interfaces.">
+<style>
+/* Layout and tokens follow the animeGRPO project page (sizigi.github.io/animeGRPO): one 960px column, header, ruled sections with mono labels, audio in bordered panels. */
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#17161a; --muted:#6b6875; --faint:#8b8794;
+  --line:#e6e2dd; --line-soft:#f0ece7;
+  --accent:#b8443c; --accent-soft:#f7e9e7;
+  --good:#2f6f4f; --good-soft:#e7f2eb;
+  --bad:#a8443c; --warn:#9a6a12;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Hiragino Sans","Noto Sans JP",sans-serif;
+  --radius:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#131215; --panel:#1b1a1e; --ink:#eceaef; --muted:#a5a1ad; --faint:#7d7987;
+    --line:#2e2c33; --line-soft:#252329;
+    --accent:#e8827a; --accent-soft:#2c1f1e;
+    --good:#7fc9a0; --good-soft:#1a2a22; --bad:#e8827a; --warn:#d9a94a;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#131215; --panel:#1b1a1e; --ink:#eceaef; --muted:#a5a1ad; --faint:#7d7987;
+  --line:#2e2c33; --line-soft:#252329;
+  --accent:#e8827a; --accent-soft:#2c1f1e;
+  --good:#7fc9a0; --good-soft:#1a2a22; --bad:#e8827a; --warn:#d9a94a;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+.wrap{max-width:960px;margin:0 auto;padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px))}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+a:hover{border-bottom-color:currentColor}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* header */
+header{padding-block:76px 40px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin:0 0 18px}
+h1{font-size:clamp(30px,5.2vw,46px);line-height:1.14;letter-spacing:-.022em;margin:0 0 8px;font-weight:660;text-wrap:balance}
+h1 .sub{display:block;font-size:.56em;font-weight:520;color:var(--muted);letter-spacing:-.01em;margin-top:10px;line-height:1.35}
+.venue{font-size:14px;color:var(--faint);margin:20px 0 0}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 0}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border:1px solid var(--line);border-radius:99px;background:var(--panel);color:var(--ink);font-size:14px;font-weight:520;transition:border-color .15s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* sections */
+section{padding-block:52px;border-bottom:1px solid var(--line-soft)}
+section:last-of-type{border-bottom:none}
+h2{font-size:13px;font-family:var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:0 0 22px}
+p{margin:0 0 16px;color:var(--ink)}
+p.lede{font-size:18.5px;line-height:1.62;max-width:68ch}
+.muted{color:var(--muted)}
+.figcap{font-size:13.5px;color:var(--muted);margin:14px 2px 0;line-height:1.55;max-width:80ch}
+
+/* panel with one item */
+.figure{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:26px 0 0}
+.figure > .pad{padding:22px 20px}
+.figure > .pad + .pad{border-top:1px solid var(--line-soft);padding-block:6px}
+.said{font-size:20px;font-weight:620;letter-spacing:-.012em;line-height:1.35;margin:0;text-align:center;overflow-wrap:anywhere;text-wrap:balance}
+.gloss{font-size:14px;color:var(--muted);text-align:center;margin:4px 0 0}
+.sits{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:18px}
+.sit{display:flex;flex-direction:column;gap:5px;font-size:14.5px;line-height:1.5}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.tag i{font-style:normal;display:inline-block;min-width:19px;text-align:center;border-radius:4px;padding:1px 5px;margin-right:6px;background:var(--line-soft);color:var(--ink)}
+.sit.b .tag i{background:var(--accent-soft);color:var(--accent)}
+.sit .small{font-size:13px;color:var(--muted)}
+.target{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:16px 0 0;font-size:13.5px;color:var(--muted)}
+.d{font-family:var(--mono);font-size:11px;padding:1px 6px;border-radius:4px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.d.up{background:var(--good-soft);color:var(--good)}
+.d.down{background:var(--accent-soft);color:var(--bad)}
+.d.flat{background:var(--line-soft);color:var(--muted)}
+
+/* system rows */
+.row{display:grid;grid-template-columns:minmax(130px,1.1fr) auto minmax(110px,1.2fr) 74px;gap:16px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px}
+.row:last-child{border-bottom:none}
+.who{font-weight:520;min-width:0}
+.players{display:flex;gap:14px}
+.player{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+button{font:inherit;color:inherit}
+.play{width:29px;height:29px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .14s;padding:0}
+.play:hover{border-color:var(--accent);color:var(--accent)}
+.play svg{width:11px;height:11px;fill:currentColor}
+.play .i-pause{display:none}
+.play[data-state="playing"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.play[data-state="playing"] .i-play{display:none}
+.play[data-state="playing"] .i-pause{display:block}
+.meter{position:relative;height:6px;border-radius:3px;background:var(--line-soft)}
+.meter .zero{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--faint)}
+.meter .fill{position:absolute;top:0;bottom:0;border-radius:3px}
+.meter .fill.up{background:var(--good)} .meter .fill.down{background:var(--bad)}
+.row .d{justify-self:end;font-size:12px;padding:2px 7px}
+
+/* explorer controls */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.tab{padding:7px 14px;border:1px solid var(--line);border-radius:99px;background:transparent;color:var(--muted);font:inherit;font-size:14px;font-weight:520;cursor:pointer;transition:all .14s}
+.tab:hover{color:var(--ink);border-color:var(--faint)}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.tab .lang{font-family:var(--mono);font-size:10.5px;opacity:.62;margin-left:5px;letter-spacing:.06em}
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.pick{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;padding:8px 11px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);cursor:pointer;font-size:13px;color:var(--muted);min-width:0;transition:all .14s}
+.pick:hover{border-color:var(--faint);color:var(--ink)}
+.pick .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint)}
+.pick .l{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pick[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
+.pick[aria-pressed="true"] .k{color:var(--accent)}
+
+/* folds */
+details > summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:9px;font-size:14px;font-weight:520;color:var(--muted)}
+details > summary::-webkit-details-marker{display:none}
+details > summary::before{content:"";width:6px;height:6px;border-right:1.5px solid var(--faint);border-bottom:1.5px solid var(--faint);transform:rotate(-45deg);transition:transform .15s}
+details[open] > summary::before{transform:rotate(45deg)}
+details > summary:hover{color:var(--ink)}
+.figure details{border-top:1px solid var(--line-soft)}
+.figure details > summary{padding:12px 20px}
+.figure details > .in{padding:0 20px 12px}
+.step{display:grid;grid-template-columns:minmax(130px,1fr) minmax(0,1.3fr) minmax(0,1.3fr) 74px;gap:16px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:14px}
+.step:last-child{border-bottom:none}
+.step .k{font-weight:520}
+.step .v{overflow-wrap:anywhere;color:var(--muted)}
+.step .v .ab{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin-right:7px}
+.step .v em{color:var(--ink)}
+code{font-family:var(--mono);font-size:.88em;background:var(--line-soft);padding:1px 5px;border-radius:4px;color:var(--ink)}
+.step .d{justify-self:end}
+
+/* footer */
+footer{padding-block:44px 72px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+footer p{color:var(--muted);margin:0 0 14px}
+footer b{color:var(--ink);font-weight:600}
+.credits{display:grid;gap:10px;padding:14px 0 6px 15px;max-width:80ch}
+.credits blockquote{margin:6px 0 0;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);font-size:13px;overflow-wrap:anywhere}
+footer details{margin:0 0 20px}
+pre.cite{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--ink);margin:0 0 20px}
+
+@media (max-width:640px){
+  header{padding-block:52px 32px}
+  section{padding-block:40px}
+  .sits{grid-template-columns:1fr}
+  .picker{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row{grid-template-columns:1fr auto;row-gap:8px}
+  .row .meter{grid-column:1}
+  .step{grid-template-columns:1fr 1fr}
+  .step .k{grid-column:1 / -1}
+  .step .d{grid-column:1 / -1;justify-self:start}
+}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+  <p class="eyebrow">Persona–Line Conflict</p>
+  <h1>When the Persona Contradicts the Line
+    <span class="sub">Diagnosing plan-to-synthesis failures in chain-of-thought TTS</span>
+  </h1>
+  <p class="venue">Joonyong Park &nbsp;·&nbsp; Jerry Li &nbsp;&mdash;&nbsp; Spellbrush</p>
+  <p class="venue" style="margin-top:6px"><a href="https://arxiv.org/abs/2610.35008">arXiv:2610.35008</a> &nbsp;·&nbsp; IndexTTS-2.5 &nbsp;·&nbsp; Japanese &amp; English</p>
+  <div class="links">
+    <a class="btn" href="https://arxiv.org/abs/2610.35008">arXiv</a>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <h2>In one example</h2>
+  <p class="lede">Same words, two personas. The stock route often misses the turn the persona calls for; a learned interface between plan and synthesizer recovers much of it.</p>
+  <div class="figure" id="herocard"></div>
+</section>
+
+<section id="listen">
+  <h2>Listen</h2>
+  <p>Sixteen test items, drawn at random. <b>Base</b> is the stock module; <b>Bypassed</b> passes the planner's own vector; <b>Supervised</b> fine-tunes the module; <b>Learned</b> maps the phrase to the emotion latent. All four receive the planner's duration factor.</p>
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="picker" id="picker"></div>
+  <div class="figure" id="card"></div>
+  <p class="figcap">✓ the measured change from A to B has the direction the item declares. Failures are shown as they fall; the example above is one of these items.</p>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <h2 style="margin-bottom:16px">Citation</h2>
+  <pre class="cite">@misc{park2026persona,
+  title  = {When the Persona Contradicts the Line: Diagnosing
+            Plan-to-Synthesis Failures in Chain-of-Thought {TTS}},
+  author = {Park, Joonyong and Li, Jerry},
+  year   = {2026},
+  eprint = {2610.35008},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url    = {https://arxiv.org/abs/2610.35008}
+}</pre>
+  <details>
+    <summary>Credits and licences</summary>
+    <div class="credits">
+      <div><b>Japanese voice.</b> Tsukuyomi-chan (つくよみちゃん) corpus, zero-shot reference.
+        <blockquote lang="ja">音声合成には、フリー素材キャラクター「つくよみちゃん」が無料公開している音声データを使用しています。<br>■つくよみちゃんコーパス（CV.夢前黎）<br><a href="https://tyc.rei-yumesaki.net/material/corpus/">https://tyc.rei-yumesaki.net/material/corpus/</a></blockquote></div>
+      <div><b>English voice.</b> EmoV-DB (Adigwe et al., 2018; <a href="https://arxiv.org/abs/1806.09514">arXiv:1806.09514</a>, <a href="https://www.openslr.org/115/">openslr.org/115</a>), non-commercial research use.</div>
+      <div><b>Synthesizer.</b> Modified IndexTTS-2.5 (<a href="https://github.com/index-tts/index-tts">index-tts</a>, <a href="https://arxiv.org/abs/2601.03888">arXiv:2601.03888</a>) under the <a href="https://github.com/index-tts/index-tts/blob/main/LICENSE">bilibili Model Use License Agreement</a>.
+        <blockquote>Any modifications made to the original model in this Derivative Work are not endorsed, warranted, or guaranteed by the original right-holder of the original model, and the original right-holder disclaims all liability related to this Derivative Work.</blockquote></div>
+      <div><b>Scoring.</b> audeering wav2vec2 emotion model (CC BY-NC-SA 4.0) and Whisper.</div>
+    </div>
+  </details>
+  <p><b>Responsible use.</b> All audio on this page is AI-generated synthetic speech, released for research inspection. The clips may not be reused as voice material or for impersonation of any voice, real or fictional.</p>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  const D = window.DEMO;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const TARGET = {"ar1": ["Arousal ↑", "B more activated than A"], "ar-1": ["Arousal ↓", "B calmer than A"],
+                  "val1": ["Valence ↑", "B more positive than A"], "val-1": ["Valence ↓", "B more negative than A"]};
+  const AXIS = {ar: "arousal", val: "valence"};
+  const tgt = it => TARGET[it.axis + it.sign];
+  const fmt = d => (d >= 0 ? "+" : "−") + Math.abs(d).toFixed(2);
+  const ICON = `<svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 1.2v9.6L10.6 6z"/></svg><svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.2 1.5h2.6v9H2.2zM7.2 1.5h2.6v9H7.2z"/></svg>`;
+
+  const player = new Audio(); let current = null;
+  function stop(){ if (current){ current.dataset.state = ""; current.setAttribute("aria-pressed", "false"); } current = null; player.pause(); }
+  document.addEventListener("click", e => {
+    const b = e.target.closest("button.play"); if (!b) return;
+    if (current === b){ stop(); return; }
+    stop(); player.src = b.dataset.src; player.currentTime = 0;
+    const p = player.play(); if (p && p.catch) p.catch(() => {});
+    current = b; b.dataset.state = "playing"; b.setAttribute("aria-pressed", "true");
+  });
+  player.addEventListener("ended", stop);
+  const play = (src, k, aria) => `<span class="player"><button type="button" class="play" data-src="${esc(src)}" aria-pressed="false" aria-label="${esc(aria)}">${ICON}</button>${k}</span>`;
+  const verdict = (ok, d) => `<span class="d ${ok ? "up" : "down"}">${ok ? "✓" : "✗"}${d == null ? "" : " " + fmt(d)}</span>`;
+  function meter(it, c){
+    const scale = it.axis === "ar" ? 0.35 : 0.25, w = Math.min(1, Math.abs(c.d) / scale) * 50, left = c.d >= 0 ? 50 : 50 - w;
+    const label = `${AXIS[it.axis]}: A ${c.va.toFixed(2)}, B ${c.vb.toFixed(2)}; change toward the target ${fmt(c.d)}`;
+    return `<div class="meter" role="img" aria-label="${esc(label)}" title="${esc(label)}"><i class="zero"></i><i class="fill ${c.d > 0 ? "up" : "down"}" style="left:${left.toFixed(1)}%;width:${w.toFixed(1)}%"></i></div>`;
+  }
+  function sysRow(it, key, label){
+    const c = it.conds[key], name = label || D.systems[key].name;
+    return `<div class="row"><div class="who">${esc(name)}</div><div class="players">${play(c.a, "A", name + ", A")}${play(c.b, "B", name + ", B")}</div>${meter(it, c)}${verdict(c.pass, c.d)}</div>`;
+  }
+  function vecText(v, alpha){
+    const parts = D.emos.map((e, i) => [e, v[i]]).filter(x => x[1] >= 0.05).sort((p, q) => q[1] - p[1]).map(x => x[0] + " " + x[1].toFixed(2).replace(/^0/, ""));
+    return (parts.length ? parts.join(" · ") : "none") + (alpha != null ? " · α " + alpha.toFixed(2).replace(/^0/, "") : "");
+  }
+  function trace(it){
+    const t = it.trace, base = it.conds.base_dur;
+    const step = (k, a, b, ok) => `<div class="step"><div class="k">${k}</div><div class="v"><span class="ab">A</span>${a}</div><div class="v"><span class="ab">B</span>${b}</div>${ok == null ? "<span></span>" : verdict(ok)}</div>`;
+    return step("Delivery phrase", `<em>${esc(t.phrase.a)}</em>`, `<em>${esc(t.phrase.b)}</em>`, t.phrase.ok)
+      + step("Planner vector", `<code>${esc(vecText(t.plan.a, t.plan.alpha_a))}</code>`, `<code>${esc(vecText(t.plan.b, t.plan.alpha_b))}</code>`, t.plan.ok)
+      + step("Stock module vector", `<code>${esc(vecText(t.module.a))}</code>`, `<code>${esc(vecText(t.module.b))}</code>`, t.module.ok)
+      + step("Waveform, Base", `<code>${base.va.toFixed(2)}</code>`, `<code>${base.vb.toFixed(2)}</code>`, base.pass)
+      + step("Duration factor", `<code>×${t.speed.a.toFixed(2)}</code>`, `<code>×${t.speed.b.toFixed(2)}</code>`, null);
+  }
+  function head(it){
+    const g = it.gloss || {}, T = tgt(it);
+    return `<div class="pad">
+        <p class="said" lang="${it.lang}">“${esc(it.line)}”</p>${g.line ? `<p class="gloss">${esc(g.line)}</p>` : ""}
+        <div class="sits">
+          <div class="sit"><span class="tag"><i>A</i>congruent</span><span lang="${it.lang}">${esc(it.cong)}</span>${g.cong ? `<span class="small">${esc(g.cong)}</span>` : ""}</div>
+          <div class="sit b"><span class="tag"><i>B</i>conflicting</span><span lang="${it.lang}">${esc(it.conf)}</span>${g.conf ? `<span class="small">${esc(g.conf)}</span>` : ""}</div>
+        </div>
+        <p class="target"><span class="d flat">${T[0]}</span>${T[1]}</p></div>`;
+  }
+  function card(it){
+    return `${head(it)}<div class="pad">${D.main.map(k => sysRow(it, k)).join("")}</div>
+      <details><summary>Stage trace</summary><div class="in">${trace(it)}</div></details>
+      <details><summary>Ablations</summary><div class="in">${D.ablations.map(k => sysRow(it, k)).join("")}</div></details>`;
+  }
+
+  const state = {lang: D.langs[0].key, idx: {}};
+  D.langs.forEach(l => state.idx[l.key] = 0);
+  function renderTabs(){ $("#tabs").innerHTML = D.langs.map(l => `<button type="button" class="tab" role="tab" aria-selected="${l.key === state.lang}" data-lang="${l.key}">${esc(l.name)}<span class="lang">${l.key.toUpperCase()}</span></button>`).join(""); }
+  function renderPicker(){ $("#picker").innerHTML = D.items[state.lang].map((it, i) => `<button type="button" class="pick" data-i="${i}" aria-pressed="${i === state.idx[state.lang]}"><span class="k">${tgt(it)[0]}</span><span class="l" lang="${it.lang}">${esc(it.line)}</span></button>`).join(""); }
+  function renderCard(){ stop(); $("#card").innerHTML = card(D.items[state.lang][state.idx[state.lang]]); }
+  $("#tabs").addEventListener("click", e => { const b = e.target.closest("button[data-lang]"); if (!b) return; state.lang = b.dataset.lang; renderTabs(); renderPicker(); renderCard(); });
+  $("#picker").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (!b) return; state.idx[state.lang] = +b.dataset.i; renderPicker(); renderCard(); });
+
+  const H = D.hero, hit = D.items[H.lang].find(it => it.id === H.id);
+  $("#herocard").innerHTML = `${head(hit)}<div class="pad">${H.rows.map(r => sysRow(hit, r[0], r[1])).join("")}</div>`;
+  renderTabs(); renderPicker(); renderCard();
+})();
+</script>
+</body>
+</html>
